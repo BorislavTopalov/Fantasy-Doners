@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Фантазия</title>
+        <link rel="stylesheet" href="./assets/styles/style.css">
+    </head>
+
+    <body>
+        
+        <header>
+            <div id="header-content">
+                <a id="logo-div" href="#menu">
+                    <img id="logo" src="./assets/pictures/logo.jpeg" alt="logo">
+                </a>
+                <a id="menu-href" href="#menu">
+                    <h1 id="menu-icon">
+                        MENU
+                    </h1>
+                </a>
+                <a  id="sup-card" href="#shopping-card">
+                    <p id="super-script">0</p>
+                    <img id="card" src="./assets/pictures/cart.jpeg" alt="pic">
+                </a>
+                
+            </div>
+        </header>
+
+        <section id="menu">
+            <div id="filter">
+                <input type="text" id="filter-field" placeholder="Filter by name">
+            </div>
+            <div id="results"></div>
+            <div id="all-menues"></div>
+
+        </section>
+
+        <section id="shopping-card">
+            <div id="order"></div>
+                <h1 id="empty-card">Количката е празна</h1>
+                <h1 id="sum-price"></h1>
+                <div id="button-order"> 
+                    <button id="order-btn" type="submit" disabled>ORDER</button>
+                </div>
+               
+            </div>
+            <div id="history">
+                <h1>History</h1>
+                <table class="table" id="table-history">
+                    <tr class="table-row" >
+                        <th>Date</th>
+                        <th>Adress</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                    </tr>
+                </table>
+
+            </div>
+        </section>
+
+        <section id="delivery">
+
+            <form id="form-delivery" action="delivery">
+                <input required type="text" name="name" id="name" placeholder="name">
+                <input required type="number" id="phone-number" placeholder="0888888888">
+                <textarea required name="adress" id="adress" placeholder="adress"></textarea>
+                <button type="submit" id="submit-order" disabled>DELIVERY</button>
+            </form>
+
+        </section>
+
+        <script src="./assets/data.js"></script>
+        <script src="./assets/index.js"></script>
+        
+
+    </body>
+</html>
