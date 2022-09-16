@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фантазия</title>
+    <link rel="stylesheet" href="./assets/styles/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div id="header-content">
+            <a id="logo-div" href="#menu">
+                <img id="logo" src="./assets/pictures/logo.jpeg" alt="logo">
+            </a>
+            <a id="menu-href" href="#menu">
+                <h1 id="menu-icon">
+                    MENU
+                </h1>
+            </a>
+            <a id="sup-card" href="#shopping-card">
+                <p id="super-script">0</p>
+                <img id="card" src="./assets/pictures/cart.jpeg" alt="pic">
+            </a>
+
+        </div>
+    </header>
+
+    <section id="login">
+        <form id="login-form">
+            <input type="text" id="user-name" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <p class="error" id="user-not-exist">There is no user, like this</p>
+            <button type="submit" id="login-btn" disabled>Login</button>
+            <a href="#register">
+                <button type="button" id="go-to-reg">Register</button>
+            </a>
+
+        </form>
+    </section>
+
+    <section id="register">
+        <form id="register-form">
+            <input type="text" id="reg-user-name" placeholder="Username">
+            <input type="email" id="user-email" placeholder="email@email.com">
+            <p class="error" id="emailError">Your email is fake</p>
+            <input type="password" id="reg-password" placeholder="Password">
+            <input type="password" id="verify-password" placeholder="Verify password">
+            <p class="error" id="passMismatchError">Your passwords don't match</p>
+            <p class="error" id="userExistsError">Username is already taken</p>
+            <button type="button" id="reg-btn" disabled>Register</button>
+            <a href="#login">
+                <button type="button" id="go-to-login">Login</button>
+            </a>
+
+        </form>
+    </section>
+
+    <section id="menu">
+        <div id="filter">
+            <input type="text" id="filter-field" placeholder="Filter by name">
+        </div>
+        <div id="results"></div>
+        <div id="all-menues"></div>
+
+    </section>
+
+    <section id="shopping-card">
+        <p id="activ-user"></p>
+        <p id="email"></p>
+        <button id="profil-exit" type="submit">Exit</button>
+        <div id="order"></div>
+        <h1 id="empty-card">Your card is empty</h1>
+        <h1 id="sum-price"></h1>
+        <div id="button-order">
+            <button id="order-btn" type="submit" disabled>ORDER</button>
+        </div>
+
+        </div>
+        <div id="history">
+            <h1>History</h1>
+            <table class="table" id="table-history">
+                <tr class="table-row">
+                    <th>Date</th>
+                    <th>Adress</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                </tr>
+            </table>
+
+        </div>
+    </section>
+
+    <section id="delivery">
+
+        <form id="form-delivery" action="delivery">
+            <input required type="text" name="name" class="name">
+            <input required type="number" id="phone-number" placeholder="0888888888">
+            <textarea required name="adress" id="adress" placeholder="adress"></textarea>
+            <button type="submit" id="submit-order" disabled>DELIVERY</button>
+        </form>
+
+    </section>
+
+    <script src="./assets/data.js"></script>
+    <script src="./assets/JS/controllers/index.js"></script>   
+    <script src="./assets/JS/controllers/registerController.js"></script>
+    <script src="./assets/JS/controllers/loginController.js"></script>
+    <script src="./assets/JS/controllers/router.js"></script>
+    <script src="./assets/JS/controllers/searchController.js"></script>
+    <script src="./assets/JS/model/userManager.js"></script>
+    <script src="./assets/JS/model/donerManagers.js"></script>
+    <script src="./assets/JS/model/cardRender.js"></script>
+    <script src="./assets/JS/model/orderCardRender.js"></script>
+    <script src="./assets/JS/model/historyRender.js"></script>
+    <script src="./assets/JS/controllers/mainController.js"></script>
+
+
+</body>
+
+</html>
