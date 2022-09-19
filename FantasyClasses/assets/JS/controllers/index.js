@@ -10,7 +10,8 @@
     exitBtn.addEventListener("click", function(event){
         event.preventDefault();
         location.hash = "#login";
-        userManager.activUser = [];
+        userManager.activUser = null;     
+        localStorage.setItem("activUser", "{}");
     })
 
     orderButton.addEventListener("click", function () {
@@ -24,16 +25,30 @@
 
     })
 
+    function addToHistory(order) {
+        donerManager.historyArr.push(order)
+        userManager.activUser.historyArr = donerManager.historyArr.slice();
+        localStorage.setItem("users", JSON.stringify(userManager.users));
+        localStorage.setItem("activUser", JSON.stringify(userManager.activUser));
+
+    }
+
+    function createHistory(orderArr) {
+        orderArr.forEach(elem => {
+            addToHistory(elem);
+        });
+    }
+
+
     deliveryButton.addEventListener("click", function (e) {
         e.preventDefault();
-
-        userManager.addToHistory;
+        createHistory(donerManager.orderArr);       
         donerManager.orderArr.splice(0, donerManager.orderArr.length);
         location.hash = "#shopping-card";
         superScript.innerText = "";
-        emptyCard.style.display = "block";
-        orderButton.disabled = true;
-
+        emptyCard.style.display = "flex";
+        orderButton.disabled = true;       
+        console.log(donerManager.historyArr);
     })
 
 })()

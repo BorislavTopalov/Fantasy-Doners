@@ -9,7 +9,8 @@
     let passMismatchError = document.getElementById("passMismatchError");
     let EmailError = document.getElementById("emailError");
     let registerForm = document.getElementById("register-form");
-
+   
+    
     registerForm.addEventListener("input", function () {
 
         if (userName.value && password.value && verifyPassword.value && email.value) {
@@ -36,8 +37,8 @@
     regButton.addEventListener("click", function (event) {
         event.preventDefault();
 
-        if (userManager.addUsers(userName.value, password.value, email.value)) {
-            location.hash = "login";
+        if (userManager.addUsers(userName.value, password.value, email.value, donerManager.historyArr)) {
+            location.hash = "#login";
             userName.value = "";
             password.value = "";
             verifyPassword.value = "";

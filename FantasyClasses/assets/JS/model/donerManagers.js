@@ -11,22 +11,13 @@ let donerManager = (function () {
             this.counter = 0;
         }
     }
-    class History {
-
-        constructor(date, adress, order, price) {
-            this.date = date;
-            this.adress = adress;
-            this.order = order;
-            this.price = price;
-        }
-    }
-
 
     class ProductManager {
 
         constructor() {
             this.allDoners = [];
             this.orderArr = [];
+            this.historyArr = [];
         }
 
         addDoner(doner) {
@@ -44,29 +35,3 @@ let donerManager = (function () {
 
     return new ProductManager();
 })()
-
-
-    // class Order {
-
-    //     constructor(num, name, price, input, remove) {
-    //         this.num = num;
-    //         this.name = name;
-    //         this.price = price;
-    //         this.input = input;
-    //         this.remove = remove;
-
-    //     }
-    // }
-
-    
-
-    // class Delivery{
-
-    //     constructor(name, phone, adress, button){
-    //         this.name = name;
-    //         this.phone = phone;
-    //         this.adress = adress;
-    //         this.button = button;
-
-    //     }
-    // }

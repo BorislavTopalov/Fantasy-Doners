@@ -8,18 +8,17 @@
     let activUserName = document.getElementById("activ-user");
     let userEmail = document.getElementById("email");
     let email = document.getElementById("user-email");
-    let personAdress = document.getElementById("adress");
-    let sumPrice = document.getElementById("sum-price");
+    
 
     loginForm.addEventListener("input", function () {
 
         if (loginUserName.value && loginPass.value) {
             loginBtn.removeAttribute("disabled");
+            missUserErorr.style.display = "none";
         } else {
             loginBtn.setAttribute("disabled", true);
         }
-        activUserName.value = loginUserName.value;
-        userEmail.value = email.value;
+       
     });
 
 
@@ -28,9 +27,8 @@
 
         if (userManager.checkForExistingUser(loginUserName.value) && userManager.checkForExistingPassword(loginPass.value)) {
             location.hash = "menu";
-            activUserName.value = loginUserName.value;
-            userEmail.value = email.value;
-            userManager.addActivUser(loginUserName.value, loginPass.value, email.value);
+            userManager.addActivUser(userManager.users);
+            localStorage.setItem("activUser", JSON.stringify(userManager.activUser));
             loginUserName.value = "";
             loginPass.value = "";
             missUserErorr.style.display = "none";

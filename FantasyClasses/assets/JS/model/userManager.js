@@ -1,14 +1,15 @@
 let userManager = (function () {
 
-    let tableHistory = document.getElementById("table-history")
+    let loginUserName = document.getElementById("user-name");
+    let loginPass = document.getElementById("password");
 
     class User {
 
-        constructor(username, password, email) {
+        constructor(username, password, email, historyArr) {
             this.username = username;
             this.password = password;
             this.email = email;
-            this.historyArr = [];
+            this.historyArr = historyArr;
 
         }
     }
@@ -17,21 +18,21 @@ let userManager = (function () {
 
         constructor() {
 
-            this.activUser = [];
+            this.activUser = {};
             if (localStorage.getItem("users")) {
-                this.activUser = JSON.parse(localStorage.getItem('activUser'));
+                this.activUser = JSON.parse(localStorage.getItem("activUser"));
             }
             this.users = [];
             if (localStorage.getItem("users")) {
-                this.users = JSON.parse(localStorage.getItem('users'));
+                this.users = JSON.parse(localStorage.getItem("users"));
             }
 
         }
 
-        addUsers(username, password, email) {
+        addUsers(username, password, email, historyArr) {
             if (!this.checkForExistingUser(username)) {
-                this.users.push(new User(username, password, email, []));
-                localStorage.setItem('users', JSON.stringify(this.users));
+                this.users.push(new User(username, password, email, historyArr));
+                localStorage.setItem("users", JSON.stringify(this.users));
 
                 return true;
             }
@@ -48,16 +49,17 @@ let userManager = (function () {
 
         }
 
-        addActivUser(username, password, email) {
-            this.activUser.push(new User(username, password, email, []));
-            localStorage.setItem("activUser", JSON.stringify(this.activUser));
-
+       
+        addActivUser(userArr){
+            this.activUser = userArr.find(element => {
+                if(element.username === loginUserName.value && element.password === loginPass.value){
+                    localStorage.setItem("activUser", JSON.stringify(this.activUser));
+                    return true;
+                }
+                return false;
+            })
         }
 
-        addToHistory() {
-            User.historyArr = donerManager.orderArr.slice();
-            historyTable.historyCard(User.historyArr, tableHistory);
-        }
 
     }
 

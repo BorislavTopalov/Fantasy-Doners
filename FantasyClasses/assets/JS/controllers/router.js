@@ -8,10 +8,12 @@ let router = (function () {
     let login = document.getElementById("login");
     let register = document.getElementById("register");
     let sumPrice = document.getElementById("sum-price");
+    let header = document.getElementsByTagName("header")[0];
+    let tableHistory = document.getElementById("table-history")
+
 
 
     class Router {
-
 
         handleHashChange() {
             let hash = location.hash.slice(1);
@@ -22,6 +24,7 @@ let router = (function () {
                     menu.style.display = ("none");
                     shoppingCard.style.display = ("none");
                     deliveryCard.style.display = ("none");
+                    header.style.display = "none";
                     break;
                 case "register":
                     login.style.display = ("none");
@@ -29,7 +32,7 @@ let router = (function () {
                     menu.style.display = ("none");
                     shoppingCard.style.display = ("none");
                     deliveryCard.style.display = ("none");
-                    
+                    header.style.display = "none";                   
                     break;
                 case "menu":
                     login.style.display = ("none");
@@ -37,6 +40,7 @@ let router = (function () {
                     menu.style.display = ("block");
                     shoppingCard.style.display = ("none");
                     deliveryCard.style.display = ("none");
+                    header.style.display = "block";
                     donerManager.getAllDoners(DATA);
                     cardRender.donerCard(donerManager.allDoners, allProducts);
                     break;
@@ -46,7 +50,9 @@ let router = (function () {
                     menu.style.display = ("none");
                     shoppingCard.style.display = ("block");
                     deliveryCard.style.display = ("none");
+                    header.style.display = "block";
                     orderCardRender.cartTable(donerManager.orderArr, orderCard, sumPrice);
+                    historyTable.historyCard(userManager.activUser.historyArr, tableHistory);
                     break;
                 case "delivery":
                     login.style.display = ("none");
@@ -54,6 +60,7 @@ let router = (function () {
                     menu.style.display = ("none");
                     shoppingCard.style.display = ("none");
                     deliveryCard.style.display = ("block");
+                    header.style.display = "block";
                     break;
                 default:
                     login.style.display = ("block");
@@ -61,6 +68,7 @@ let router = (function () {
                     menu.style.display = ("none");
                     shoppingCard.style.display = ("none");
                     deliveryCard.style.display = ("none");
+                    header.style.display = "none";
                     break;
             }
         }
